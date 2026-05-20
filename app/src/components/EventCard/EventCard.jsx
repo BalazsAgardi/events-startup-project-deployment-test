@@ -14,6 +14,13 @@ export default function EventCard({ event }) {
     })
     .replace(",", "");
 
+  const price = event.price === 0 ? "Free" : `${event.price} kr.`;
+
+  const ticketsAvailable =
+    event.ticketsAvailable === 0
+      ? "Sold out"
+      : `${event.ticketsAvailable} ticket${event.ticketsAvailable > 1 && "s"} left`;
+
   return (
     <Link to={`/events/${event.id}`} className={styles.link}>
       <li className={styles.card}>

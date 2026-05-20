@@ -24,7 +24,6 @@ export default function Header() {
           />
         </a>
 
-        {/* Navigation links go here — e.g. link to event list, cart, login */}
         <div className={styles.navLinks}>
           <Link to="/" className={styles.navLink}>
             Home

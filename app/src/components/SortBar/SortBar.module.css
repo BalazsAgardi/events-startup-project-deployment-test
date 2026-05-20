@@ -5,17 +5,17 @@
   gap: 0.75rem;
 }
 
-.sortLabel {
+.title {
   color: #636375;
   font-size: 1rem;
 }
 
-.sortSelectWrapper {
+.selectorsWrapper {
   position: relative;
 }
 
-.sortSelect {
-  padding: 10px 44px 10px 16px;
+.selectors {
+  padding: 0.625rem 2.75rem 0.625rem 1rem;
   min-width: 12rem;
   border: 1px solid #2e2e45;
   border-radius: 0.65rem;

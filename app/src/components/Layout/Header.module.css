@@ -46,9 +46,9 @@
 .registerBtn,
 .signoutBtn {
   padding: 0.5rem 1.25rem;
+  background-color: #ffd800;
   border: none;
   border-radius: 0.5rem;
-  background-color: #ffd800;
   color: #1e2235;
   font-size: 0.95rem;
   font-weight: 600;

@@ -1,51 +1,35 @@
-# Build stage for React app
-FROM node:20.12.1-alpine AS app-builder
+ARG NODE_VERSION=20
+ARG VITE_API_URL=/api
 
-WORKDIR /build
+FROM node:${NODE_VERSION} AS builder
+WORKDIR /workspace
 
-# Copy root package files and app package files
-COPY package*.json ./
-COPY app/package*.json ./app/
+# Copy app sources
+COPY app/package*.json app/
+COPY app/ app/
 
-# Install root dependencies (for shared packages like MUI)
-RUN npm install
+WORKDIR /workspace/app
 
-# Copy app source code
-COPY app ./app
+# Build the frontend with the API mounted at /api
+ARG VITE_API_URL
+ENV VITE_API_URL=${VITE_API_URL}
 
-# Install app-specific dependencies
-RUN cd app && npm install
+RUN npm install --silent
+RUN npm run build
 
-# Set build-time environment variables
-ENV VITE_API_URL=/api
-ENV NODE_ENV=production
-
-# Build React app
-RUN cd app && npm run build
-
-# Final runtime stage
-FROM node:20.12.1-alpine
-
+FROM node:${NODE_VERSION} AS runner
 WORKDIR /app
 
-# Copy API package files
-COPY api/package*.json ./api/
+# Copy runtime package metadata first for caching
+COPY app/package*.json ./
+RUN npm install --silent
 
-# Install API dependencies only
-RUN cd api && npm install --omit=dev
+# Copy API server and built frontend
+COPY app/api ./api
+COPY --from=builder /workspace/app/dist ./api/dist
 
-# Copy API source code
-COPY api ./api
+# Expose a single port for app + API
+ENV PORT=3001
+EXPOSE 3001
 
-# Copy built React app from builder stage
-COPY --from=app-builder /build/app/dist ./api/public
-
-# Set environment
-ENV PORT=3000
-ENV NODE_ENV=production
-
-# Expose port
-EXPOSE 3000
-
-# Start the API server (which will serve both the API and static React files)
-CMD ["node", "api/src/index.mjs"]
+CMD ["node", "api/server.cjs"]

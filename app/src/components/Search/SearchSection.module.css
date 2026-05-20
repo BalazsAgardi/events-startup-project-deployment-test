@@ -1,0 +1,11 @@
+.searchSection {
+  padding: 4rem 1.5rem;
+  background: #293a7a;
+}
+
+.searchTitle {
+  margin-top: 0;
+  font-size: clamp(2rem, 3vw, 4rem);
+  color: #fff;
+  text-align: center;
+}

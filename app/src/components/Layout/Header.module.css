@@ -9,8 +9,6 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  font-size: 1rem;
-  font-weight: 600;
 }
 
 .logo {
@@ -24,13 +22,17 @@
   gap: 0.5rem;
 }
 
-.navLink {
-  padding: 0.5rem 1rem;
+.navLink,
+.loginBtn {
+  padding: 0.5rem;
   color: #e8eaf0;
+  font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
 }
 
-.navLink:hover {
+.navLink:hover,
+.loginBtn:hover {
   background-color: rgba(255, 255, 255, 0.08);
   border-radius: 0.5rem;
 }
@@ -38,19 +40,32 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
-.registerBtn {
+.registerBtn,
+.signoutBtn {
   padding: 0.5rem 1.25rem;
   background-color: #ffd800;
   border: none;
   border-radius: 0.5rem;
   color: #1e2235;
+  font-size: 0.95rem;
+  font-weight: 600;
   text-decoration: none;
   cursor: pointer;
 }
 
-.registerBtn:hover {
+.registerBtn:hover,
+.signoutBtn:hover {
   background-color: #ffc400;
+}
+
+.signoutBtn {
+  font-weight: 600;
+}
+
+.userIcon,
+.cartIcon {
+  color: #fff;
 }

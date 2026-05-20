@@ -1,0 +1,83 @@
+.container {
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  max-width: 35vw;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e2235;
+}
+
+.count {
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+.list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checkoutBtn {
+  padding: 0.875rem;
+  width: 100%;
+  background: #f4d63f;
+  border: none;
+  border-radius: 1rem;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e2235;
+  cursor: pointer;
+}
+
+.checkoutBtn:hover {
+  background-color: #ffc400;
+}
+
+.emptyCart {
+  padding: 5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.emptyIcon {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.emptyTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e2235;
+}
+
+.emptySubtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+.error {
+  margin-top: 1rem;
+  border-radius: 1rem;
+  font: inherit !important;
+}

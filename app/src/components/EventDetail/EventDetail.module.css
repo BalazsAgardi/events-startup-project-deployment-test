@@ -2,19 +2,26 @@ body {
   font-size: 0.9rem;
 }
 
-.wrapper {
+.container {
   margin: 0 auto;
   max-width: 50vw;
   padding: 1.5rem 1rem 3.75rem;
+  max-width: 50vw;
   color: #1a1a1a;
 }
 
 .image {
+  margin-bottom: 1.5rem;
   width: 100%;
   height: 20rem;
   border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
   object-fit: cover;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .eventTitle {
@@ -22,6 +29,29 @@ body {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.2;
+}
+
+.buyBtn {
+  padding: 0.625rem 1.25rem;
+  background-color: #ffd800;
+  border: none;
+  border-radius: 0.5rem;
+  color: #1a1a1a;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.buyBtn:not(:disabled):hover {
+  background-color: #e0b010;
+}
+
+.buyBtn:disabled {
+  background-color: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
 }
 
 .divider {
@@ -34,10 +64,6 @@ body {
   margin: 0 0 0.625rem;
   font-size: 1rem;
   font-weight: 700;
-}
-
-.eventIcon {
-  color: #293a7d;
 }
 
 .dateTime {
@@ -92,6 +118,10 @@ body {
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
+}
+
+.toggleBtn:hover {
+  background-color: #e0b010;
 }
 
 .hidden {
